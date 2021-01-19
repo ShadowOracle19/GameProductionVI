@@ -35,7 +35,7 @@ public class ProjectileShooter : MonoBehaviour
 
     void FireProjectile()
     {
-        Debug.DrawRay(firePoint.position, firePoint.forward * 100, Color.red, 2f);
+        Debug.DrawRay(firePoint.position, firePoint.forward * 10, Color.red, 2f);
         Ray ray = new Ray(firePoint.position, firePoint.forward);
 
         RaycastHit hit;
@@ -46,7 +46,7 @@ public class ProjectileShooter : MonoBehaviour
         }
         else
         {
-            destination = ray.GetPoint(1000);
+            destination = ray.GetPoint(10);
         }
 
         

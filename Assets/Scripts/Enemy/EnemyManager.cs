@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
 
     void Start() // Also spawns enemies!
     {
-        //InvokeRepeating("SpawnEnemy", startTime, spawnRate);
+        InvokeRepeating("SpawnEnemy", startTime, spawnRate);
         // Invoke("EndSpawn", endTime); // Uncomment to stop spawns after 20s.
         SpawnEnemy();
     }

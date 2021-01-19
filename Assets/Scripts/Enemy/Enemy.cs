@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, rotSpeed, 0); // Let's try spinning, that's a good trick...
+        //transform.Rotate(0, rotSpeed, 0); // Let's try spinning, that's a good trick...
     }
 
     public void takeDamage(int damageAmount)
