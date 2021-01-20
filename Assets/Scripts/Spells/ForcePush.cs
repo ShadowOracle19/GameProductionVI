@@ -93,6 +93,7 @@ public class ForcePush : MonoBehaviour
             yield return new WaitForSeconds(0.007f);
         }
         //PlayerAnimator.SetInteger("AnimController", 0);
+        Destroy(shield);
         yield return new WaitForSeconds(0.001f);
 
     }
