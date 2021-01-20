@@ -12,8 +12,10 @@ public class ProjectileTest : MonoBehaviour
         if(collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Player" && !collided)
         {
             collided = true;
-            Destroy(gameObject);
-
+            Destroy(gameObject);  
+        }
+        else if(collision.gameObject.tag == "Enemy" && !collided)
+        {
             DoPush();
         }
     }
@@ -32,7 +34,9 @@ public class ProjectileTest : MonoBehaviour
             {
                 Rigidbody pushedBody = pushedObjec.GetComponent<Rigidbody>();
 
-                pushedBody.AddExplosionForce(pushAmount, Vector3.up, pushRadius);
+                pushedBody.AddExplosionForce(pushAmount, gameObject.transform.position, pushRadius);
+                collided = true;
+                Destroy(gameObject);
             }
         }
     }

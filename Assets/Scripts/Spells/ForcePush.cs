@@ -11,19 +11,19 @@ public class ForcePush : MonoBehaviour
 
     public GameObject forceFieldPrefab;
     private Vector3 scaleChange = new Vector3(0f, 0f, 0f);
+    //public Animator PlayerAnimator;
+    //public float shakeDuration = 0.3f;
+    //public float shakeAmplitude = 1.2f;
+    //public float shakeFrequency = 2.0f;
 
-    public float shakeDuration = 0.3f;
-    public float shakeAmplitude = 1.2f;
-    public float shakeFrequency = 2.0f;
+    //private float shakeElapsedTime = 0f;
 
-    private float shakeElapsedTime = 0f;
-
-    public CinemachineFreeLook Vcam;
+    //public CinemachineFreeLook Vcam;
     //private CinemachineBasicMultiChannelPerlin VcamNoise;
 
     void Start()
     {
-        Debug.Log(Vcam.VirtualCameraGameObject.GetComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain);
+        //Debug.Log(Vcam.VirtualCameraGameObject.GetComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain);
     }
 
     // Update is called once per frame
@@ -74,7 +74,8 @@ public class ForcePush : MonoBehaviour
         //        shakeElapsedTime = 0f;
         //    }
         //}
-        
+        //PlayerAnimator.SetInteger("AnimController", 1);
+
         float j = 10;
         yield return new WaitForSeconds(0.1f);
         for (float i = 0; i < 10; i++)
@@ -91,7 +92,9 @@ public class ForcePush : MonoBehaviour
             shield.transform.localScale -= new Vector3(j, j, j);
             yield return new WaitForSeconds(0.007f);
         }
+        //PlayerAnimator.SetInteger("AnimController", 0);
+        yield return new WaitForSeconds(0.001f);
 
     }
-    
+
 }
