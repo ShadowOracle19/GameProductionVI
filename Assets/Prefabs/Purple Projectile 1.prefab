@@ -10033,7 +10033,7 @@ GameObject:
   - component: {fileID: 1827668121532756395}
   - component: {fileID: 4262843492184338874}
   m_Layer: 0
-  m_Name: Purple Projectile
+  m_Name: Purple Projectile 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10084,6 +10084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62111b64bbc3a2f4993da5a7e24b5ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactVFX: {fileID: 2611509162964648099, guid: eeb93c415cfd6c04ca8dc9eb9ffef07d, type: 3}
   pushAmount: 100
   pushRadius: 100
 --- !u!135 &1827668121532756395

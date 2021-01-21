@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileShooter : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject muzzleFlash;
     public float projectileSpeed = 30f;
     [SerializeField]
     [Range (0.1f, 1.5f)]
@@ -19,6 +20,8 @@ public class ProjectileShooter : MonoBehaviour
 
     private float timer;
     private Vector3 destination;
+
+    
 
     void Update()
     {
@@ -55,6 +58,8 @@ public class ProjectileShooter : MonoBehaviour
     
     void InsantiateProjectile()
     {
+        var muzzle = Instantiate(muzzleFlash, firePoint.position, Quaternion.identity) as GameObject;
+        Destroy(muzzle, 1);
         var projectileObj = Instantiate(projectile, firePoint.position, Quaternion.identity) as GameObject;
         projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * projectileSpeed;
     }

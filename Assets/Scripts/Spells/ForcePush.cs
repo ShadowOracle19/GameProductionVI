@@ -48,8 +48,8 @@ public class ForcePush : MonoBehaviour
             if (pushedObjec.CompareTag("Enemy"))
             {
                 Rigidbody pushedBody = pushedObjec.GetComponent<Rigidbody>();
-                Debug.Log(pushedObjec.gameObject.tag);
                 pushedBody.AddExplosionForce(pushAmount, gameObject.transform.position, pushRadius);
+                pushedObjec.GetComponent<Enemy>().takeDamage(5);
             }
         }
     }

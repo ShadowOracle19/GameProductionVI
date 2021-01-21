@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f84f86fc09131747b01e1c46f0787e5, type: 2}
+  - {fileID: 2100000, guid: a03ed2f4dc4f3cf4ca1ceb5d7b0df78b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotSpeed: 0
   startingHealth: 5
+  dissolveEffect: {fileID: 2100000, guid: 03d0e536fe367d44cbad99bc14406e70, type: 2}

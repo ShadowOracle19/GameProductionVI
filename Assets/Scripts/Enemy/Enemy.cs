@@ -11,6 +11,11 @@ public class Enemy : MonoBehaviour
 
     private int currentHealth;
 
+    public Material dissolveEffect;
+
+    public float TimeSinceStart = 0;
+    public bool isDying = false;
+
     void Start()
     {
         EnemyManager.instance.enemies.Add(this);
@@ -19,6 +24,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if(isDying)
+        {
+            GetComponent<MeshRenderer>().material.SetFloat("Vector1_CE7AAB4D", TimeSinceStart);
+            TimeSinceStart += Time.deltaTime;
+        }
+        
         //transform.Rotate(0, rotSpeed, 0); // Let's try spinning, that's a good trick...
     }
 
@@ -28,15 +39,21 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    void Die()
-    {
-        EnemyManager.instance.EnemyAlive = false;
-        Destroy(this);
-    }
+    
 
+    IEnumerator Die()
+    {
+        
+        this.GetComponent<MeshRenderer>().material = dissolveEffect;
+        isDying = true;
+        yield return new WaitForSeconds(3.0f);
+        EnemyManager.instance.EnemyAlive = false;
+        Destroy(gameObject);
+        yield return new WaitForSeconds(0.1f);
+    }
     
 }
