@@ -13,8 +13,8 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField]
     private float startTime = 3.0f,
-        spawnRate = 2.0f,
-        endTime = 20.0f;
+        spawnRate = 2.0f;
+        
     void Awake()
     {
         if (instance == null)
@@ -29,7 +29,6 @@ public class EnemyManager : MonoBehaviour
     void Start() // Also spawns enemies!
     {
         InvokeRepeating("SpawnEnemy", startTime, spawnRate);
-        // Invoke("EndSpawn", endTime); // Uncomment to stop spawns after 20s.
         SpawnEnemy();
     }
     void Update()
@@ -48,8 +47,5 @@ public class EnemyManager : MonoBehaviour
         EnemyAlive = true;
     }
 
-    void EndSpawn()
-    {
-        CancelInvoke();
-    }
+    
 }
