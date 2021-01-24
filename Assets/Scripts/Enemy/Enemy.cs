@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     public float TimeSinceStart = 0;
     public bool isDying = false;
-
+    
     void Start()
     {
         EnemyManager.instance.enemies.Add(this);
@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            GameManager.instance.AddScore();
             StartCoroutine(Die());
         }
     }

@@ -111,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1918882124320071625
 MonoBehaviour:
@@ -128,3 +128,5 @@ MonoBehaviour:
   rotSpeed: 0
   startingHealth: 5
   dissolveEffect: {fileID: 2100000, guid: 03d0e536fe367d44cbad99bc14406e70, type: 2}
+  TimeSinceStart: 0
+  isDying: 0

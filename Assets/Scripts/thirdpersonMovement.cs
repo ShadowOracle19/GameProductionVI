@@ -24,6 +24,8 @@ public class thirdpersonMovement : MonoBehaviour
     public bool isGrounded;
     private Vector3 moveDir;
 
+    public ParticleSystem dashParticals;
+
     private float lastClickTime;
     void Start()
     {
@@ -70,17 +72,10 @@ public class thirdpersonMovement : MonoBehaviour
         //dash
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            //Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward * DashRange, Color.red, 2f);
-
-            //Debug.Log("Dash");
-            //Ray ray = new Ray(gameObject.transform.position, Vector3.forward);
-
-            //RaycastHit hit;
-            //if(Physics.Raycast(ray, out hit, DashRange))
-            //{
-            //    gameObject.GetComponentInChildren<Rigidbody>().velocity = Vector3.forward * DashRange * Time.deltaTime; 
-            //}
+            
             controller.Move(moveDir.normalized * DashSpeed * Time.deltaTime);
+            dashParticals.Emit(100);
+
         }
 
         controller.Move(velocity * Time.deltaTime);
