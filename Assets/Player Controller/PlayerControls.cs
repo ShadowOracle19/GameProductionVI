@@ -114,6 +114,82 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerActions"",
+            ""id"": ""02641b93-36c7-4ca3-8fff-9611847e352e"",
+            ""actions"": [
+                {
+                    ""name"": ""Roll"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef389261-7f2b-4819-89d4-290a8c71d45a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RB"",
+                    ""type"": ""Button"",
+                    ""id"": ""80f7754c-45a4-41d0-a2b3-fb10e6aab5e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RT"",
+                    ""type"": ""Button"",
+                    ""id"": ""57972340-1a4d-41c9-b4af-108d293e25a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b82432a5-e380-43a1-a9db-8fb268ba3cf5"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffc8ddf2-80a9-4fa0-b03f-97ded5ef84b3"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e58f0187-ddfd-4b77-aa92-4ef541213496"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f67f78c-228e-40ab-a37a-398f474a3f0f"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -122,6 +198,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerMovment = asset.FindActionMap("Player Movment", throwIfNotFound: true);
         m_PlayerMovment_Movement = m_PlayerMovment.FindAction("Movement", throwIfNotFound: true);
         m_PlayerMovment_Camera = m_PlayerMovment.FindAction("Camera", throwIfNotFound: true);
+        // PlayerActions
+        m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
+        m_PlayerActions_Roll = m_PlayerActions.FindAction("Roll", throwIfNotFound: true);
+        m_PlayerActions_RB = m_PlayerActions.FindAction("RB", throwIfNotFound: true);
+        m_PlayerActions_RT = m_PlayerActions.FindAction("RT", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -208,9 +289,64 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerMovmentActions @PlayerMovment => new PlayerMovmentActions(this);
+
+    // PlayerActions
+    private readonly InputActionMap m_PlayerActions;
+    private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
+    private readonly InputAction m_PlayerActions_Roll;
+    private readonly InputAction m_PlayerActions_RB;
+    private readonly InputAction m_PlayerActions_RT;
+    public struct PlayerActionsActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Roll => m_Wrapper.m_PlayerActions_Roll;
+        public InputAction @RB => m_Wrapper.m_PlayerActions_RB;
+        public InputAction @RT => m_Wrapper.m_PlayerActions_RT;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerActionsActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActionsActions instance)
+        {
+            if (m_Wrapper.m_PlayerActionsActionsCallbackInterface != null)
+            {
+                @Roll.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRoll;
+                @RB.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRB;
+                @RB.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRB;
+                @RB.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRB;
+                @RT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRT;
+                @RT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRT;
+                @RT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnRT;
+            }
+            m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Roll.started += instance.OnRoll;
+                @Roll.performed += instance.OnRoll;
+                @Roll.canceled += instance.OnRoll;
+                @RB.started += instance.OnRB;
+                @RB.performed += instance.OnRB;
+                @RB.canceled += instance.OnRB;
+                @RT.started += instance.OnRT;
+                @RT.performed += instance.OnRT;
+                @RT.canceled += instance.OnRT;
+            }
+        }
+    }
+    public PlayerActionsActions @PlayerActions => new PlayerActionsActions(this);
     public interface IPlayerMovmentActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+    }
+    public interface IPlayerActionsActions
+    {
+        void OnRoll(InputAction.CallbackContext context);
+        void OnRB(InputAction.CallbackContext context);
+        void OnRT(InputAction.CallbackContext context);
     }
 }

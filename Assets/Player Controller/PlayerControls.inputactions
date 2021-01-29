@@ -101,6 +101,82 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PlayerActions",
+            "id": "02641b93-36c7-4ca3-8fff-9611847e352e",
+            "actions": [
+                {
+                    "name": "Roll",
+                    "type": "Button",
+                    "id": "ef389261-7f2b-4819-89d4-290a8c71d45a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RB",
+                    "type": "Button",
+                    "id": "80f7754c-45a4-41d0-a2b3-fb10e6aab5e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RT",
+                    "type": "Button",
+                    "id": "57972340-1a4d-41c9-b4af-108d293e25a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b82432a5-e380-43a1-a9db-8fb268ba3cf5",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffc8ddf2-80a9-4fa0-b03f-97ded5ef84b3",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e58f0187-ddfd-4b77-aa92-4ef541213496",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f67f78c-228e-40ab-a37a-398f474a3f0f",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
