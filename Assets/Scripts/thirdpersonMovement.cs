@@ -27,6 +27,8 @@ public class thirdpersonMovement : MonoBehaviour
     public ParticleSystem dashParticals;
 
     private float lastClickTime;
+
+    public float aimRadius = 100f;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -72,11 +74,24 @@ public class thirdpersonMovement : MonoBehaviour
         //dash
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
+            //dash
+            //controller.Move(moveDir.normalized * DashSpeed * Time.deltaTime);
+            //dashParticals.Emit(100);
+            //Collider[] colliders = Physics.OverlapSphere(transform.position, aimRadius);
+
+            //foreach (Collider pushedObjec in colliders)
+            //{
+            //    if (pushedObjec.CompareTag("Enemy"))
+            //    {
+            //        transform.LookAt(pushedObjec.gameObject.transform, Vector3.forward);
+            //    }
+            //}
             
-            controller.Move(moveDir.normalized * DashSpeed * Time.deltaTime);
-            dashParticals.Emit(100);
 
         }
+
+
+        
 
         controller.Move(velocity * Time.deltaTime);
 
