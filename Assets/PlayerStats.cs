@@ -10,14 +10,20 @@ namespace LC
         public int maxHealth;
         public int currentHealth;
 
-        public HealthBar healthBar;
+        public int staminaLevel = 10;
+        public int maxStamina;
+        public int currentStamina;
+
+        HealthBar healthBar;
+        StaminaBar staminaBar;
 
         AnimatorHandler animatorHandler;
 
         private void Awake()
         {
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
-
+            healthBar = FindObjectOfType<HealthBar>();
+            staminaBar = FindObjectOfType<StaminaBar>();
         }
 
         // Start is called before the first frame update
@@ -26,6 +32,10 @@ namespace LC
             maxHealth = SetMaxHealthFromHealthLevel();
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
+
+            maxStamina = SetMaxStaminaFromStaminaLevel();
+            currentStamina = maxStamina;
+            staminaBar.SetMaxStamina(maxStamina);
         }
 
         //change this level to balance what max health the player is per level
@@ -33,6 +43,12 @@ namespace LC
         {
             maxHealth = healthLevel * 10;
             return maxHealth;
+        }
+
+        private int SetMaxStaminaFromStaminaLevel()
+        {
+            maxStamina = staminaLevel * 10;
+            return maxStamina;
         }
 
         public void TakeDamage(int damage)
@@ -49,6 +65,12 @@ namespace LC
                 animatorHandler.PlayTargetAnimation("Death_01", true);
                 //Handle player death
             }
+        }
+
+        public void TakeStaminaDamage(int damage)
+        {
+            currentStamina = currentStamina - damage;
+            staminaBar.SetCurrentStamina(currentStamina);
         }
         
     }

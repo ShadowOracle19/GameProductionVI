@@ -6,17 +6,27 @@ namespace LC
 {
     public class WeaponSlotManager : MonoBehaviour
     {
+        public WeaponItem attackingWeapon;
+
         WeaponHolderSlot leftHandSlot;
         WeaponHolderSlot rightHandSlot;
 
         DamageCollider leftHandDamageCollider;
         DamageCollider rightHandDamageCollider;
 
+        
+
         Animator animator;
+
+        QuickSlotsUI quickSlotsUI;
+
+        PlayerStats playerStats;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
+            playerStats = GetComponentInParent<PlayerStats>();
 
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
 
@@ -40,6 +50,7 @@ namespace LC
             {
                 leftHandSlot.LoadWeaponModel(weaponItem);
                 LoadLeftWeaponDamageCollider();
+                quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
                 #region handle left Weapon Idle Animations
                 if (weaponItem != null)
                 {
@@ -55,6 +66,7 @@ namespace LC
             {
                 rightHandSlot.LoadWeaponModel(weaponItem);
                 LoadRightWeaponDamageCollider();
+                quickSlotsUI.UpdateWeaponQuickSlotsUI(false, weaponItem);
                 #region handle right weapon Idle animations
                 if (weaponItem != null)
                 {
@@ -96,6 +108,17 @@ namespace LC
         public void CloseLeftDamageCollider()
         {
             leftHandDamageCollider.DisableDamageCollider();
+        }
+        #endregion
+
+        #region handle weapon stamina drainage
+        public void DrainStaminaLightAttack()
+        {
+            playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.lightAttackMultiplyer));
+        }
+        public void DrainStaminaHeavyAttack()
+        {
+            playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackMultiplier));
         }
         #endregion
     }

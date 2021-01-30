@@ -14,8 +14,13 @@ namespace LC
         public float mouseY;
 
         public bool b_input;
+        public bool a_Input;
         public bool rb_Input;
         public bool rt_Input;
+        public bool d_Pad_Up;
+        public bool d_Pad_Down;
+        public bool d_Pad_Right;
+        public bool d_Pad_Left;
 
         public bool sprintFlag;
         public bool rollFlag;
@@ -61,6 +66,8 @@ namespace LC
             MoveInput(delta);
             HandleRollInput(delta);
             HandleAttackInput(delta);
+            HandleQuickSlotInput();
+            HandleInteractableButtonInput();
         }
 
         private void MoveInput(float delta)
@@ -124,6 +131,26 @@ namespace LC
                 playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
 
             }
+        }
+
+        private void HandleQuickSlotInput()
+        {
+            inputActions.PlayerQuickSlots.DPadRight.performed += inputActions => d_Pad_Right = true;
+            inputActions.PlayerQuickSlots.DPadLeft.performed += inputActions => d_Pad_Left = true;
+            if(d_Pad_Right)
+            {
+                playerInventory.ChangeRightWeapon();
+            }
+            else if(d_Pad_Left)
+            {
+                playerInventory.ChangeLeftWeapon();
+            }
+
+        }
+
+        private void HandleInteractableButtonInput()
+        {
+            inputActions.PlayerActions.A.performed += i => a_Input = true;
         }
     }
 
