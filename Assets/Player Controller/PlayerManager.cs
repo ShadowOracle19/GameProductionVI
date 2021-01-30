@@ -18,10 +18,11 @@ namespace LC
         public bool isSprinting;
         public bool isInAir;
         public bool isGrounded;
+        public bool canDoCombo;
 
         private void Awake()
         {
-            cameraHandler = CameraHandler.singleton;
+            cameraHandler = FindObjectOfType<CameraHandler>();
         }
 
         // Start is called before the first frame update
@@ -37,6 +38,7 @@ namespace LC
         {
             float delta = Time.deltaTime;
             isInteracting = anim.GetBool("isInteracting");
+            canDoCombo = anim.GetBool("canDoCombo");
            
             inputHandler.TickInput(delta);
             playerLocomotion.HandleMovement(delta);
