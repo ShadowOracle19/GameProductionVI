@@ -28,8 +28,13 @@ namespace LC
 
         private void Start()
         {
-            rightWeapon = unarmedWeapon;
-            leftWeapon = unarmedWeapon;
+            //rightWeapon = unarmedWeapon;
+            //leftWeapon = unarmedWeapon;
+
+            rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
+            leftWeapon = weaponsInLeftHandSlots[currentLeftWeaponIndex];
+            weaponSlotManager.loadWeaponOnSlot(rightWeapon, false);
+            weaponSlotManager.loadWeaponOnSlot(leftWeapon, true);
         }
 
         public void ChangeRightWeapon()
