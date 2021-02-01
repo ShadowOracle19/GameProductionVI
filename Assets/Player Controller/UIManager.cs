@@ -8,12 +8,19 @@ namespace LC
     public class UIManager : MonoBehaviour
     {
         public PlayerInventory playerInventory;
-        EquipmentWindowUI equipmentWindowUI;
+        public EquipmentWindowUI equipmentWindowUI;
 
         [Header("UI Windows")]
         public GameObject hudWindow;
         public GameObject selectWindow;
+        public GameObject equipmentScreenWindow;
         public GameObject weaponInventoryWindow;
+
+        [Header("Equipment window slots")]
+        public bool rightHandSlot01Selected;
+        public bool rightHandSlot02Selected;
+        public bool leftHandSlot01Selected;
+        public bool leftHandSlot02Selected;
 
         [Header("Weapon inventory")]
         public GameObject weaponInventorySlotPrefab;
@@ -22,13 +29,14 @@ namespace LC
 
         private void Awake()
         {
-            equipmentWindowUI = FindObjectOfType<EquipmentWindowUI>();
+            
         }
 
         private void Start()
         {
             weaponInventorySlots = weaponInventorySlotParent.GetComponentsInChildren<WeaponInventorySlot>();
             equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
+            
         }
 
         public void UpdateUI()
@@ -64,7 +72,17 @@ namespace LC
 
         public void CloseAllInventoryWindows()
         {
+            ResetAllSelectedSlots();
             weaponInventoryWindow.SetActive(false);
+            equipmentScreenWindow.SetActive(false);
+        }
+
+        public void ResetAllSelectedSlots()
+        {
+            rightHandSlot01Selected = false;
+            rightHandSlot02Selected = false;
+            leftHandSlot01Selected = false;
+            leftHandSlot02Selected = false;
         }
     }
 }

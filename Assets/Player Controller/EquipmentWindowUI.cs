@@ -11,11 +11,10 @@ namespace LC
         public bool leftHandSlot01Selected;
         public bool leftHandSlot02Selected;
 
-        HandEquipmentSlotUI[] handEquipmentSlotUI;
+        public HandEquipmentSlotUI[] handEquipmentSlotUI;
 
         private void Start()
         {
-            handEquipmentSlotUI = GetComponentsInChildren<HandEquipmentSlotUI>();
         }
 
         public void LoadWeaponsOnEquipmentScreen(PlayerInventory playerInventory)
@@ -39,6 +38,7 @@ namespace LC
                     handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[1]);
                 }
             }
+            
         }
 
         public void SelectRightHandSlot01()

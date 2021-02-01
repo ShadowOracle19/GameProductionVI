@@ -26,8 +26,6 @@ namespace LC
             playerLocomotion = playerManager.GetComponent<PlayerLocomotion>();
             animatorHandler = playerManager.GetComponentInChildren<AnimatorHandler>();
 
-            Debug.Log("Pick up");
-
             playerLocomotion.rigidbody.velocity = Vector3.zero;//stops player from moving when picking up item
             animatorHandler.PlayTargetAnimation("Pick Up Item", true); //plays animation of looting the item
             playerInventory.weaponsInventory.Add(weapon);

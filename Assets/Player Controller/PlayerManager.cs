@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LC
 {
-    public class PlayerManager : MonoBehaviour
+    public class PlayerManager : CharacterManager
     {
         InputHandler inputHandler;
         Animator anim;
