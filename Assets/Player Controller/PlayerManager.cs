@@ -11,6 +11,7 @@ namespace LC
         Animator anim;
         CameraHandler cameraHandler;
         PlayerLocomotion playerLocomotion;
+        PlayerStats playerStats;
 
         InteractableUI interactableUI;
         public GameObject interactableUIGameObject;
@@ -23,6 +24,9 @@ namespace LC
         public bool isInAir;
         public bool isGrounded;
         public bool canDoCombo;
+        public bool isUsingRightHand;
+        public bool isUsingLeftHand;
+        public bool isInvulnerable;
 
         private void Awake()
         {
@@ -34,6 +38,7 @@ namespace LC
         {
             inputHandler = GetComponent<InputHandler>();
             anim = GetComponentInChildren<Animator>();
+            playerStats = GetComponent<PlayerStats>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
             interactableUI = FindObjectOfType<InteractableUI>();
         }
@@ -44,11 +49,17 @@ namespace LC
             float delta = Time.deltaTime;
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
+            isUsingRightHand = anim.GetBool("isUsingRightHand");
+            isUsingLeftHand = anim.GetBool("isUsingLeftHand");
+            isInvulnerable = anim.GetBool("isInvulnerable");
             anim.SetBool("isInAir", isInAir);
+
             inputHandler.TickInput(delta);
             playerLocomotion.HandleRollingAndSprinting(delta);
             playerLocomotion.HandleJumping();
-            
+            playerStats.RegenerateStamina();
+
+
             CheckForInteractable();
         }
 

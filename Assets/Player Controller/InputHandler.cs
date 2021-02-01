@@ -43,6 +43,7 @@ namespace LC
         PlayerInventory playerInventory;
         PlayerManager playerManager;
         WeaponSlotManager weaponSlotManager;
+        AnimatorHandler animatorHandler;
         UIManager uiManager;
         CameraHandler cameraHandler;
 
@@ -52,12 +53,13 @@ namespace LC
 
         private void Awake()
         {
-            playerAttacker = GetComponent<PlayerAttacker>();
+            playerAttacker = GetComponentInChildren<PlayerAttacker>();
             playerInventory = GetComponent<PlayerInventory>();
             playerManager = GetComponent<PlayerManager>();
             weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
+            animatorHandler = GetComponentInChildren<AnimatorHandler>();
         }
 
         public void OnEnable()
@@ -136,21 +138,8 @@ namespace LC
             //RB input handles RIGHT hand weapons light attack
             if(rb_Input)
             {
-                if(playerManager.canDoCombo)
-                {
-                    comboFlag = true;
-                    playerAttacker.HandleWeaponCombo(playerInventory.rightWeapon);
-                    comboFlag = false;
-                }
-                else
-                {
-                    if (playerManager.isInteracting)
-                        return;
-                    if (playerManager.canDoCombo)
-                        return;
+                playerAttacker.HandleRBAction();
 
-                    playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
-                }
                 
             }
             if(rt_Input)

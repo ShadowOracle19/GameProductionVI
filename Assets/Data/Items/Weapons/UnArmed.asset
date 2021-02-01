@@ -19,12 +19,16 @@ MonoBehaviour:
   right_Hand_Idle: Right Arm Empty
   left_Hand_Idle: Left Arm Empty
   th_idle: 
-  OH_Light_Attack_1: OH_Light_Attack_01
-  OH_Light_Attack_2: OH_Light_Attack_02
-  OH_Heavy_Attack_1: OH_Heavy_Attack_01
+  OH_Light_Attack_1: 
+  OH_Light_Attack_2: 
+  OH_Heavy_Attack_1: 
   TH_Light_Attack_1: 
   TH_Light_Attack_2: 
   TH_Heavy_Attack_1: 
   baseStamina: 0
   lightAttackMultiplyer: 0
   heavyAttackMultiplier: 0
+  isSpellCaster: 0
+  isFaithCaster: 0
+  isPyroCaster: 0
+  isMeleeWeapon: 1

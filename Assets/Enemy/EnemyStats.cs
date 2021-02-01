@@ -33,6 +33,9 @@ namespace LC
 
         public void TakeDamage(int damage)
         {
+            if (isDead)
+                return;
+
             currentHealth = currentHealth - damage;
 
             animatorHandler.Play("Damage_01");
@@ -41,7 +44,8 @@ namespace LC
             {
                 currentHealth = 0;
                 animatorHandler.Play("Death_01");
-                //Handle player death
+                isDead = true;
+                Destroy(gameObject, 5);
             }
         }
     }

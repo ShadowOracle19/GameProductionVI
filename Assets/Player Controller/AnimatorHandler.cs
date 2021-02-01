@@ -113,6 +113,15 @@ namespace LC
 
         }
 
+        public void EnableisInvulnerable()
+        {
+            anim.SetBool("isInvulnerable", true);
+        }
+        public void DisableisInvulnerable()
+        {
+            anim.SetBool("isInvulnerable", false);
+        }
+
         private void OnAnimatorMove()
         {
             if(playerManager.isInteracting == false)
