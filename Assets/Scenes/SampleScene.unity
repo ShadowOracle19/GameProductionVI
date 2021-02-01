@@ -2769,7 +2769,7 @@ GameObject:
   - component: {fileID: 463149182}
   - component: {fileID: 463149183}
   - component: {fileID: 463149184}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: PlayerSoulsLikeMovement
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8284,6 +8284,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261378293, guid: 6eb764155f76ce8439467aa9768e612b, type: 3}
+      propertyPath: detectionLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 613719783, guid: 6eb764155f76ce8439467aa9768e612b, type: 3}
+      propertyPath: detectionLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 2251958960489907816, guid: 6eb764155f76ce8439467aa9768e612b, type: 3}
       propertyPath: m_Name
       value: 'Enemy '
@@ -8302,7 +8310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251958960489907820, guid: 6eb764155f76ce8439467aa9768e612b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.965
+      value: -8.78
       objectReference: {fileID: 0}
     - target: {fileID: 2251958960489907820, guid: 6eb764155f76ce8439467aa9768e612b, type: 3}
       propertyPath: m_LocalRotation.w

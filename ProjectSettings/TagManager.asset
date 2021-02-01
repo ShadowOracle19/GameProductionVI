@@ -14,12 +14,12 @@ TagManager:
   - Enemy
   - Water
   - UI
-  - Character
+  - 
   - Environment
   - Ground
   - PostProcessing
-  - Controller
-  - 
+  - Character
+  - Character Collider Blocker
   - 
   - 
   - 
