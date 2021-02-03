@@ -145,7 +145,7 @@ namespace LC
                 {
                     CharacterManager charHandler = colliders[i].GetComponent<CharacterManager>();
 
-                    if (charHandler != null)
+                    if (charHandler != null && colliders[i].CompareTag("Enemy"))
                     {
                         Vector3 lockTargetDir = charHandler.transform.position - transform.position;
 
@@ -178,6 +178,12 @@ namespace LC
                         }
 
                     }
+
+                    else if(charHandler == null)
+                    {
+                        ClearLockOnTarget();
+                    }
+
                 }
 
                 if (availbleTargets.Count > 0)

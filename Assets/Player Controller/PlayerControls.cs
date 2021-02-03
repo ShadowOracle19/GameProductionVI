@@ -242,6 +242,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ForcePush"",
+                    ""type"": ""Button"",
+                    ""id"": ""0eaf7c6f-4870-461b-af78-8914c63ea5aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -385,6 +393,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Y"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""559d6e28-4365-4cf3-94c7-741f658e1e13"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ForcePush"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -537,6 +556,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_Inventory = m_PlayerActions.FindAction("Inventory", throwIfNotFound: true);
         m_PlayerActions_LockOn = m_PlayerActions.FindAction("LockOn", throwIfNotFound: true);
         m_PlayerActions_Y = m_PlayerActions.FindAction("Y", throwIfNotFound: true);
+        m_PlayerActions_ForcePush = m_PlayerActions.FindAction("ForcePush", throwIfNotFound: true);
         // PlayerQuickSlots
         m_PlayerQuickSlots = asset.FindActionMap("PlayerQuickSlots", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadUp = m_PlayerQuickSlots.FindAction("D-Pad Up", throwIfNotFound: true);
@@ -657,6 +677,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_Inventory;
     private readonly InputAction m_PlayerActions_LockOn;
     private readonly InputAction m_PlayerActions_Y;
+    private readonly InputAction m_PlayerActions_ForcePush;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -669,6 +690,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Inventory => m_Wrapper.m_PlayerActions_Inventory;
         public InputAction @LockOn => m_Wrapper.m_PlayerActions_LockOn;
         public InputAction @Y => m_Wrapper.m_PlayerActions_Y;
+        public InputAction @ForcePush => m_Wrapper.m_PlayerActions_ForcePush;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -702,6 +724,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Y.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnY;
                 @Y.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnY;
                 @Y.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnY;
+                @ForcePush.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnForcePush;
+                @ForcePush.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnForcePush;
+                @ForcePush.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnForcePush;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -730,6 +755,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Y.started += instance.OnY;
                 @Y.performed += instance.OnY;
                 @Y.canceled += instance.OnY;
+                @ForcePush.started += instance.OnForcePush;
+                @ForcePush.performed += instance.OnForcePush;
+                @ForcePush.canceled += instance.OnForcePush;
             }
         }
     }
@@ -808,6 +836,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnInventory(InputAction.CallbackContext context);
         void OnLockOn(InputAction.CallbackContext context);
         void OnY(InputAction.CallbackContext context);
+        void OnForcePush(InputAction.CallbackContext context);
     }
     public interface IPlayerQuickSlotsActions
     {

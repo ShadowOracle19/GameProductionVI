@@ -89,9 +89,6 @@ namespace LC
             {
                 PerformRBMagicAction(playerInventory.rightWeapon);
             }
-            
-
-
         }
         #endregion
 

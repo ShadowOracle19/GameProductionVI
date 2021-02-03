@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour
     {
         Vector3 offset = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-2.0f, 2.0f), 0.0f);
         GameObject enemyClone = Instantiate(enemyPrefab, transform.position + offset, transform.rotation);
-        enemyClone.GetComponent<Enemy>().rotSpeed = Random.Range(0, 2) * 2 - 1; // Gets -1 or 1, not 0. Essentially direction.
+
         EnemyAlive = true;
     }
 

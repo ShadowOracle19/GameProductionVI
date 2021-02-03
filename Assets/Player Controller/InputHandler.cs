@@ -23,6 +23,7 @@ namespace LC
         public bool lockOnInput;
         public bool right_Stick__Right_Input;
         public bool right_Stick__Left_Input;
+        public bool forcePush_input;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -46,6 +47,7 @@ namespace LC
         AnimatorHandler animatorHandler;
         UIManager uiManager;
         CameraHandler cameraHandler;
+        ForcePush forcePush;
 
         Vector2 movementInput;
         Vector2 cameraInput;
@@ -60,6 +62,7 @@ namespace LC
             uiManager = FindObjectOfType<UIManager>();
             cameraHandler = FindObjectOfType<CameraHandler>();
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
+            forcePush = GetComponent<ForcePush>();
         }
 
         public void OnEnable()
@@ -80,6 +83,7 @@ namespace LC
                 inputActions.PlayerMovment.LockOnTargetRight.performed += i => right_Stick__Right_Input = true;
                 inputActions.PlayerMovment.LockOnTargetLeft.performed += i => right_Stick__Left_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_input = true;
+                inputActions.PlayerActions.ForcePush.performed += i => forcePush_input = true;
             }
 
             inputActions.Enable();
@@ -99,6 +103,7 @@ namespace LC
             HandleInventoryInput();
             HandleLockOnInput();
             HandleTwoHandInput();
+            HandleForcePushInput();
         }
 
         private void HandleMoveInput(float delta)
@@ -140,7 +145,6 @@ namespace LC
             {
                 playerAttacker.HandleRBAction();
 
-                
             }
             if(rt_Input)
             {
@@ -251,6 +255,14 @@ namespace LC
                 }
             }
 
+        }
+
+        private void HandleForcePushInput()
+        {
+            if(forcePush_input)
+            {
+                forcePush.DoPush();
+            }
         }
     }
 
