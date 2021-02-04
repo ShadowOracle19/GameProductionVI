@@ -29,10 +29,12 @@ namespace LC
 
         private void Start()
         {
+            
             rightWeapon = weaponsInRightHandSlots[0];
             leftWeapon = weaponsInLeftHandSlots[0];
             weaponSlotManager.loadWeaponOnSlot(rightWeapon, false);
             weaponSlotManager.loadWeaponOnSlot(leftWeapon, true);
+            
         }
 
         public void ChangeRightWeapon()

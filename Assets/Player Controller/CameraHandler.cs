@@ -58,6 +58,7 @@ namespace LC
         private void Start()
         {
             environmentLayer = LayerMask.NameToLayer("Environment");
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void FollowTarget(float delta)

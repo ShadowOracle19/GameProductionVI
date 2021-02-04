@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpellCast
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 9f7a3e11e0096e845a6384da5a3ad1e0, type: 3}
-  itemName: 
+  itemName: Magic Hand
   modelPrefab: {fileID: 6459212761329323678, guid: fc986e2d56ddb1145933cd0db1d26acb, type: 3}
   isUnarmed: 0
   right_Hand_Idle: Right_Arm_Idle_01

@@ -45,8 +45,7 @@ namespace LC
                 currentHealth = 0;
                 animatorHandler.Play("Death_01");
                 isDead = true;
-                //Destroy(gameObject, 5);
-                gameObject.SetActive(false);
+                
             }
         }
     }

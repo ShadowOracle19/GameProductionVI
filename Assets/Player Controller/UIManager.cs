@@ -64,10 +64,12 @@ namespace LC
         public void OpenSelectWindow()
         {
             selectWindow.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
         public void CloseSelectWindow()
         {
             selectWindow.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void CloseAllInventoryWindows()
@@ -75,6 +77,7 @@ namespace LC
             ResetAllSelectedSlots();
             weaponInventoryWindow.SetActive(false);
             equipmentScreenWindow.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void ResetAllSelectedSlots()
@@ -83,6 +86,11 @@ namespace LC
             rightHandSlot02Selected = false;
             leftHandSlot01Selected = false;
             leftHandSlot02Selected = false;
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
         }
     }
 }
