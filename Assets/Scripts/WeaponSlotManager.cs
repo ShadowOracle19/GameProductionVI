@@ -9,11 +9,8 @@ namespace LC
         PlayerManager playerManager;
         public WeaponItem attackingWeapon;
         
-        WeaponHolderSlot leftHandSlot;
         WeaponHolderSlot rightHandSlot;
         WeaponHolderSlot sideSlot;
-
-        DamageCollider leftHandDamageCollider;
         DamageCollider rightHandDamageCollider;
 
         
@@ -37,12 +34,8 @@ namespace LC
 
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
             {
-                if(weaponSlot.isLeftHandSlot)
-                {
-                    leftHandSlot = weaponSlot;
-                }
 
-                else if(weaponSlot.isRightHandSlot)
+                if(weaponSlot.isRightHandSlot)
                 {
                     rightHandSlot = weaponSlot;
                 }
@@ -56,34 +49,10 @@ namespace LC
 
         public void loadWeaponOnSlot(WeaponItem weaponItem, bool isLeft)
         {
-            if(isLeft)
+            
+            if (isLeft == false)
             {
-                leftHandSlot.currentWeapon = weaponItem;
-                leftHandSlot.LoadWeaponModel(weaponItem);
-                LoadLeftWeaponDamageCollider();
-                quickSlotsUI.UpdateWeaponQuickSlotsUI(true, weaponItem);
-                #region handle left Weapon Idle Animations
-                if (weaponItem != null)
-                {
-                    animator.CrossFade(weaponItem.left_Hand_Idle, 0.2f);
-                }
-                else
-                {
-                    animator.CrossFade("Left Arm Empty", 0.2f);
-                }
-                #endregion
-            }
-            else
-            {
-                
-                if(inputHandler.twoHandFlag)
-                {
-                    sideSlot.LoadWeaponModel(leftHandSlot.currentWeapon);
-                    leftHandSlot.UnloadWeaponAndDestroy();
-                    animator.CrossFade(weaponItem.th_idle, 0.2f);
-                }
-                else
-                {
+
                     #region handle right weapon Idle animations
 
                     animator.CrossFade("Both Arms Empty", 0.2f);
@@ -99,7 +68,7 @@ namespace LC
                         animator.CrossFade("Right Arm Empty", 0.2f);
                     }
                     #endregion
-                }
+                
                 rightHandSlot.currentWeapon = weaponItem;
                 rightHandSlot.LoadWeaponModel(weaponItem);
                 LoadRightWeaponDamageCollider();
@@ -111,10 +80,6 @@ namespace LC
 
         #region Handle Weapon's Damage Collider
 
-        private void LoadLeftWeaponDamageCollider()
-        {
-            leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
-        }
         private void LoadRightWeaponDamageCollider()
         {
             rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
@@ -126,15 +91,12 @@ namespace LC
             {
                 rightHandDamageCollider.EnableDamageCollider();
             }
-            else if(playerManager.isUsingLeftHand)
-            {
-                leftHandDamageCollider.EnableDamageCollider();
-            }
+            
         }     
         public void CloseDamageCollider()
         {
             rightHandDamageCollider.DisableDamageCollider();
-            leftHandDamageCollider.DisableDamageCollider();
+            
         }
 
         #endregion

@@ -14,8 +14,7 @@ namespace LC
 
         public bool rightHandSlot01;
         public bool rightHandSlot02;
-        public bool leftHandSlot01;
-        public bool leftHandSlot02;
+
 
         private void Awake()
         {
@@ -48,14 +47,7 @@ namespace LC
             {
                 uiManager.rightHandSlot02Selected = true;
             }
-            else if(leftHandSlot01)
-            {
-                uiManager.leftHandSlot01Selected = true;
-            }            
-            else         
-            {            
-                uiManager.leftHandSlot02Selected = true;
-            }
+
         }
     }
 }

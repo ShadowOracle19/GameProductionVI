@@ -83,7 +83,7 @@ namespace LC
             inputHandler.a_Input = false;
             inputHandler.jump_Input = false;
             inputHandler.inventory_Input = false;
-            inputHandler.forcePush_input = false;
+            inputHandler.spell_input = false;
 
             float delta = Time.fixedDeltaTime;
             if (cameraHandler != null)

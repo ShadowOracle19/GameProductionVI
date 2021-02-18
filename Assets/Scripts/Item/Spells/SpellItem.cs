@@ -12,10 +12,7 @@ namespace LC
 
         public string spellAnimation;
 
-        [Header("Spell Type")]
-        public bool isFaithSpell;
-        public bool isMagicSpell;
-        public bool isPyroSpell;
+
 
         [Header("Spell Description")]
         [TextArea]

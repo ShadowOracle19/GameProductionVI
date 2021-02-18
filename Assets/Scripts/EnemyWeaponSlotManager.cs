@@ -13,7 +13,7 @@ namespace LC
         WeaponHolderSlot rightHandSlot;
         WeaponHolderSlot leftHandSlot;
 
-        DamageCollider leftHandDamageCollider;
+        
         DamageCollider rightHandDamageCollider;
 
         private void Awake()
@@ -64,20 +64,13 @@ namespace LC
             {
                 LoadWeaponOnSlot(rightHandWeapon, false);
             }
-            if (leftHandWeapon != null)
-            {
-                LoadWeaponOnSlot(leftHandWeapon, true);
-            }
+            
         }
 
         public void LoadWeaponsDamageCollider(bool isLeft)
         {
-            if(isLeft)
-            {
-                leftHandDamageCollider = leftHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
-
-            }
-            else
+            
+            if(isLeft == false)
             {
                 rightHandDamageCollider = rightHandSlot.currentWeaponModel.GetComponentInChildren<DamageCollider>();
             }

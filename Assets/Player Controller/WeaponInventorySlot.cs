@@ -50,29 +50,15 @@ namespace LC
                 playerInventory.weaponsInRightHandSlots[1] = item;
                 playerInventory.weaponsInventory.Remove(item);
             }
-            else if (uiManager.leftHandSlot01Selected)
-            {
-                playerInventory.weaponsInventory.Add(playerInventory.weaponsInLeftHandSlots[0]);
-                playerInventory.weaponsInLeftHandSlots[0] = item;
-                playerInventory.weaponsInventory.Remove(item);
-            }
-            else if(uiManager.leftHandSlot02Selected)
-            {
-                playerInventory.weaponsInventory.Add(playerInventory.weaponsInLeftHandSlots[1]);
-                playerInventory.weaponsInLeftHandSlots[1] = item;
-                playerInventory.weaponsInventory.Remove(item);
-
-            }
+            
             else
             {
                 return;
             }
 
             playerInventory.rightWeapon = playerInventory.weaponsInRightHandSlots[playerInventory.currentRightWeaponIndex];
-            playerInventory.leftWeapon = playerInventory.weaponsInLeftHandSlots[playerInventory.currentLeftWeaponIndex];
 
             weaponSlotManager.loadWeaponOnSlot(playerInventory.rightWeapon, false);
-            weaponSlotManager.loadWeaponOnSlot(playerInventory.leftWeapon, true);
 
             uiManager.equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
             uiManager.ResetAllSelectedSlots();

@@ -8,8 +8,6 @@ namespace LC
     {
         public bool rightHandSlot01Selected;
         public bool rightHandSlot02Selected;
-        public bool leftHandSlot01Selected;
-        public bool leftHandSlot02Selected;
 
         public HandEquipmentSlotUI[] handEquipmentSlotUI;
 
@@ -29,14 +27,7 @@ namespace LC
                 {
                     handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInRightHandSlots[1]);
                 }
-                else if (handEquipmentSlotUI[i].leftHandSlot01)
-                {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[0]);
-                }
-                else
-                {
-                    handEquipmentSlotUI[i].AddItem(playerInventory.weaponsInLeftHandSlots[1]);
-                }
+                
             }
             
         }
@@ -49,14 +40,7 @@ namespace LC
         {
             rightHandSlot02Selected = true;
         }
-        public void SelectleftHandSlot01()
-        {
-            leftHandSlot01Selected = true;
-        }
-        public void SelectleftHandSlot02()
-        {
-            leftHandSlot02Selected = true;
-        }
+
 
     }
 }

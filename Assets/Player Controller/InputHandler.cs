@@ -23,7 +23,7 @@ namespace LC
         public bool lockOnInput;
         public bool right_Stick__Right_Input;
         public bool right_Stick__Left_Input;
-        public bool forcePush_input;
+        public bool spell_input;
 
         public bool d_Pad_Up;
         public bool d_Pad_Down;
@@ -83,7 +83,7 @@ namespace LC
                 inputActions.PlayerMovment.LockOnTargetRight.performed += i => right_Stick__Right_Input = true;
                 inputActions.PlayerMovment.LockOnTargetLeft.performed += i => right_Stick__Left_Input = true;
                 inputActions.PlayerActions.Y.performed += i => y_input = true;
-                inputActions.PlayerActions.ForcePush.performed += i => forcePush_input = true;
+                inputActions.PlayerActions.SpellCast.performed += i => spell_input = true;
             }
 
             inputActions.Enable();
@@ -102,8 +102,8 @@ namespace LC
             HandleQuickSlotInput();
             HandleInventoryInput();
             HandleLockOnInput();
-            HandleTwoHandInput();
-            HandleForcePushInput();
+            
+            HandleSpellCastInput();
         }
 
         private void HandleMoveInput(float delta)
@@ -143,6 +143,7 @@ namespace LC
             //RB input handles RIGHT hand weapons light attack
             if(rb_Input)
             {
+                playerInventory.UseMeleeWeapon();
                 playerAttacker.HandleRBAction();
 
             }
@@ -162,10 +163,7 @@ namespace LC
             {
                 playerInventory.ChangeRightWeapon();
             }
-            else if(d_Pad_Left)
-            {
-                playerInventory.ChangeLeftWeapon();
-            }
+            
 
         }
 
@@ -237,31 +235,14 @@ namespace LC
             cameraHandler.SetCameraHeight();
         }
 
-        private void HandleTwoHandInput()
+        private void HandleSpellCastInput()
         {
-            if(y_input)
+            playerInventory.UnequipMeleeWeapon();
+            if (spell_input)
             {
-                y_input = false;
-
-                twoHandFlag = !twoHandFlag;
-                if(twoHandFlag)
-                {
-                    weaponSlotManager.loadWeaponOnSlot(playerInventory.rightWeapon, false);
-                }
-                else
-                {
-                    weaponSlotManager.loadWeaponOnSlot(playerInventory.rightWeapon, false);
-                    weaponSlotManager.loadWeaponOnSlot(playerInventory.leftWeapon, true);
-                }
-            }
-
-        }
-
-        private void HandleForcePushInput()
-        {
-            if(forcePush_input)
-            {
-                forcePush.DoPush();
+                if (playerManager.isInteracting)
+                    return;
+                playerAttacker.CastSpellAction();
             }
         }
     }

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6191e8c4d5aedd44b5fb2b44d7a6482, type: 3}
+  m_Name: Heal
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 9f7a3e11e0096e845a6384da5a3ad1e0, type: 3}
+  itemName: Heal
+  modelPrefab: {fileID: 6459212761329323678, guid: fc986e2d56ddb1145933cd0db1d26acb, type: 3}
+  isUnarmed: 0
+  spell: {fileID: 11400000, guid: fdd407b1d43eeae48a4840b7aa8dd8cd, type: 2}
+  right_Hand_Idle: Right_Arm_Idle_01
+  th_idle: TH_Idle_01
+  OH_Light_Attack_1: OH_Light_Attack_01
+  OH_Light_Attack_2: OH_Light_Attack_02
+  OH_Heavy_Attack_1: OH_Heavy_Attack_01
+  TH_Light_Attack_1: TH_Light_Attack_01
+  TH_Light_Attack_2: TH_Light_Attack_01
+  TH_Heavy_Attack_1: TH_Heavy_Attack_01
+  baseStamina: 0
+  lightAttackMultiplyer: 0
+  heavyAttackMultiplier: 0
+  isSpellCaster: 0
+  isFaithCaster: 1
+  isPyroCaster: 0
+  isMeleeWeapon: 0

@@ -96,6 +96,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a959a705-ab32-4469-8ab6-89d38c4269af",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "75316e74-0d23-4c9f-9dfc-769d4a3452b6",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -231,7 +242,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ForcePush",
+                    "name": "SpellCast",
                     "type": "Button",
                     "id": "0eaf7c6f-4870-461b-af78-8914c63ea5aa",
                     "expectedControlType": "Button",
@@ -386,11 +397,11 @@
                 {
                     "name": "",
                     "id": "559d6e28-4365-4cf3-94c7-741f658e1e13",
-                    "path": "<Keyboard>/q",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ForcePush",
+                    "action": "SpellCast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
