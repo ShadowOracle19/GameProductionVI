@@ -59,12 +59,15 @@ namespace LC
         #region input Actions
         public void HandleRBAction()
         {
+            playerInventory.UseMeleeWeapon();
             PerformRBMeleeAction();
             
         }
 
         public void CastSpellAction()
         {
+            
+            playerInventory.UnequipMeleeWeapon();
             PerformMagicAction(playerInventory.rightWeapon);
         }
         #endregion
@@ -95,7 +98,7 @@ namespace LC
 
         private void PerformMagicAction(WeaponItem weapon)
         {
-            
+            playerInventory.UnequipMeleeWeapon();
             if(playerInventory.currentSpell != null)
             {
                 //Check for FP

@@ -17,8 +17,9 @@ namespace LC
         public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
         
 
-        public int currentRightWeaponIndex = -1;
-        
+        public int currentRightWeaponIndex = 1;
+        int tempWeaponIndex;
+        public bool isMeleeWeaponEquipped;
 
         public List<WeaponItem> weaponsInventory;
 
@@ -31,7 +32,7 @@ namespace LC
         private void Start()
         {
             
-            rightWeapon = weaponsInRightHandSlots[0];
+            rightWeapon = weaponsInRightHandSlots[1];
             
             weaponSlotManager.loadWeaponOnSlot(rightWeapon, false);
            
@@ -40,7 +41,7 @@ namespace LC
 
         public void ChangeRightWeapon()
         {
-            currentRightWeaponIndex = currentRightWeaponIndex + 1;
+            currentRightWeaponIndex += 1;
 
             //if(currentRightWeaponIndex == 0 && weaponsInRightHandSlots[0] != null)
             //{
@@ -65,44 +66,57 @@ namespace LC
 
             switch (currentRightWeaponIndex)
             {
-                case 0:
+                case 1:
                     if(weaponsInRightHandSlots[0] != null)
                     {
+                        isMeleeWeaponEquipped = false;
+                        tempWeaponIndex = currentRightWeaponIndex;
                         rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
                         weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
                     }
                     break;
 
-                case 1:
+                case 2:
                     if (weaponsInRightHandSlots[0] != null)
                     {
+                        isMeleeWeaponEquipped = false;
+                        tempWeaponIndex = currentRightWeaponIndex;
                         rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
                         weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
                     }
                     break;
                 default:
-                    currentRightWeaponIndex = 0;
+                    currentRightWeaponIndex = 1;
+                    tempWeaponIndex = currentRightWeaponIndex;
                     break;
             }
-
-            //if(currentRightWeaponIndex > weaponsInRightHandSlots.Length - 1)
-            //{
-            //    currentRightWeaponIndex = -1;
-            //    rightWeapon = unarmedWeapon;
-            //    weaponSlotManager.loadWeaponOnSlot(unarmedWeapon, false);
-            //}
         }
 
         public void UseMeleeWeapon()
         {
-            rightWeapon = meleeWeapon;
-            weaponSlotManager.loadWeaponOnSlot(meleeWeapon, false);
+            isMeleeWeaponEquipped = true;
+            currentRightWeaponIndex = 0;
+            if (weaponsInRightHandSlots[0] != null)
+            {
+                rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
+                weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
+            }
         }
 
         public void UnequipMeleeWeapon()
         {
-            rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
-            weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
+            if(isMeleeWeaponEquipped)
+            {
+                Debug.Log(tempWeaponIndex);
+                isMeleeWeaponEquipped = false;
+                currentRightWeaponIndex = tempWeaponIndex;
+                if (weaponsInRightHandSlots[0] != null)
+                {
+                    rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
+                    weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
+                }
+            }
+            
         }
         
     }

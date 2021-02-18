@@ -161,6 +161,7 @@ namespace LC
             
             if(d_Pad_Right)
             {
+                
                 playerInventory.ChangeRightWeapon();
             }
             
@@ -237,11 +238,12 @@ namespace LC
 
         private void HandleSpellCastInput()
         {
-            playerInventory.UnequipMeleeWeapon();
+            
             if (spell_input)
             {
                 if (playerManager.isInteracting)
                     return;
+                playerInventory.UnequipMeleeWeapon();
                 playerAttacker.CastSpellAction();
             }
         }

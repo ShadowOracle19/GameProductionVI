@@ -14,21 +14,38 @@ namespace LC
         public GameObject forceFieldPrefab;
         private Vector3 scaleChange = new Vector3(0f, 0f, 0f);
 
-        public void DoPush()
+        public void Awake()
         {
-            var shield = Instantiate(forceFieldPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+            var shield = forceFieldPrefab;
             shield.transform.localScale = scaleChange;
             Collider[] colliders = Physics.OverlapSphere(transform.position, pushRadius);
 
             foreach (Collider pushedObjec in colliders)
             {
                 if (pushedObjec.CompareTag("Enemy"))
-                {                   
+                {
                     pushedObjec.GetComponent<EnemyStats>().TakeDamage(damage);
                 }
             }
             StartCoroutine(grow(shield));
         }
+
+
+        //public void DoPush()
+        //{
+        //    var shield = Instantiate(forceFieldPrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
+        //    shield.transform.localScale = scaleChange;
+        //    Collider[] colliders = Physics.OverlapSphere(transform.position, pushRadius);
+
+        //    foreach (Collider pushedObjec in colliders)
+        //    {
+        //        if (pushedObjec.CompareTag("Enemy"))
+        //        {                   
+        //            pushedObjec.GetComponent<EnemyStats>().TakeDamage(damage);
+        //        }
+        //    }
+        //    StartCoroutine(grow(shield));
+        //}
 
         IEnumerator grow(GameObject shield)
         {
@@ -49,7 +66,8 @@ namespace LC
                 yield return new WaitForSeconds(0.007f);
             }
             //PlayerAnimator.SetInteger("AnimController", 0);
-            Destroy(shield);
+            
+
             yield return new WaitForSeconds(0.001f);
 
         }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 482ff7e969781f04eafc6909506a818b, type: 3}
   itemName: Aura Push
-  modelPrefab: {fileID: 6459212761329323678, guid: fc986e2d56ddb1145933cd0db1d26acb, type: 3}
+  modelPrefab: {fileID: 4304677782463658626, guid: e52fa808cde655e4ba664c3b0a1df5a7, type: 3}
   isUnarmed: 0
   spell: {fileID: 11400000, guid: 8bbdd6e46d712de44bf7ae0c5397909c, type: 2}
   right_Hand_Idle: Right_Arm_Idle_01
