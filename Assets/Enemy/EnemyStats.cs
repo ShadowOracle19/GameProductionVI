@@ -45,7 +45,7 @@ namespace LC
                 currentHealth = 0;
                 animatorHandler.Play("Death_01");
                 isDead = true;
-                
+                gameObject.GetComponent<EnemyManager>().enabled = false;
             }
         }
     }

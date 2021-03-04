@@ -9,7 +9,7 @@ namespace LC
         PlayerManager playerManager;
         public WeaponItem attackingWeapon;
         
-        WeaponHolderSlot rightHandSlot;
+        public WeaponHolderSlot rightHandSlot;
         WeaponHolderSlot sideSlot;
         DamageCollider rightHandDamageCollider;
 

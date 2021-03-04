@@ -75,8 +75,16 @@ namespace LC
                         weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
                     }
                     break;
-
                 case 2:
+                    if (weaponsInRightHandSlots[0] != null)
+                    {
+                        isMeleeWeaponEquipped = false;
+                        tempWeaponIndex = currentRightWeaponIndex;
+                        rightWeapon = weaponsInRightHandSlots[currentRightWeaponIndex];
+                        weaponSlotManager.loadWeaponOnSlot(weaponsInRightHandSlots[currentRightWeaponIndex], false);
+                    }
+                    break;
+                case 3:
                     if (weaponsInRightHandSlots[0] != null)
                     {
                         isMeleeWeaponEquipped = false;

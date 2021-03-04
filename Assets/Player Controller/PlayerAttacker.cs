@@ -109,7 +109,7 @@ namespace LC
 
         private void SuccessfullCastSpell()
         {
-            playerInventory.rightWeapon.spell.SuccessfullyCastSpell(animatorHandler, playerStats);
+            playerInventory.rightWeapon.spell.SuccessfullyCastSpell(animatorHandler, playerStats, weaponSlotManager);
         }
 
         #endregion

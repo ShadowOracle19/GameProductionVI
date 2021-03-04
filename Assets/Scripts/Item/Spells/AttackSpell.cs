@@ -14,11 +14,12 @@ namespace LC
         {
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);
             animatorHandler.PlayTargetAnimation(spellAnimation, true);
+            Destroy(instantiatedWarmUpSpellFX, 1);
         }
 
-        public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
-        {
-            GameObject instantiatedSpellFX = Instantiate(spellCastFX, animatorHandler.transform);
+        public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponHolderSlot)
+        {          
+            GameObject instantiatedSpellFX = Instantiate(spellCastFX, weaponHolderSlot.rightHandSlot.transform);
         }
     }
 }

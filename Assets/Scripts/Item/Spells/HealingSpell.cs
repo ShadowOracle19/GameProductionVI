@@ -14,14 +14,14 @@ namespace LC
         {
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);           
             animatorHandler.PlayTargetAnimation(spellAnimation, true);
-            Debug.Log("Attempt to cast spell");
+            Destroy(instantiatedWarmUpSpellFX, 1);
         }
 
-        public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
+        public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponHolderSlot)
         {
-            GameObject instantiatedSpellFX = Instantiate(spellCastFX, animatorHandler.transform);
+            GameObject instantiatedSpellFX = Instantiate(spellCastFX, weaponHolderSlot.rightHandSlot.transform);
             playerStats.HealPlayer(healAmount);
-            Debug.Log("Cast spell");
+            Destroy(instantiatedSpellFX, 1);
         }
     }
 }

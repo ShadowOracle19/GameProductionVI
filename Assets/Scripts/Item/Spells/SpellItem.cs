@@ -23,7 +23,7 @@ namespace LC
             Debug.Log("attempt to cast");
         }
 
-        public virtual void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
+        public virtual void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponHolderSlot)
         {
             Debug.Log("Cast spell");
         }
