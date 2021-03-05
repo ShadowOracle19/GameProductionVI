@@ -19,3 +19,7 @@ MonoBehaviour:
   spellAnimation: AuraPush_Cast
   spellDescription: 
   damage: 10
+  range: 0
+  effectRadius: 0
+  projectileSpeed: 30
+  isAoe: 1
