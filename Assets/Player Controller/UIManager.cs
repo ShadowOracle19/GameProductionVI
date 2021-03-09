@@ -13,7 +13,6 @@ namespace LC
         [Header("UI Windows")]
         public GameObject hudWindow;
         public GameObject selectWindow;
-        public GameObject equipmentScreenWindow;
         public GameObject weaponInventoryWindow;
 
         [Header("Equipment window slots")]
@@ -35,7 +34,6 @@ namespace LC
         private void Start()
         {
             weaponInventorySlots = weaponInventorySlotParent.GetComponentsInChildren<WeaponInventorySlot>();
-            equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
             
         }
 
@@ -64,11 +62,13 @@ namespace LC
         public void OpenSelectWindow()
         {
             selectWindow.SetActive(true);
+            Time.timeScale = 0.00001f;
             Cursor.lockState = CursorLockMode.None;
         }
         public void CloseSelectWindow()
         {
             selectWindow.SetActive(false);
+            Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -76,7 +76,6 @@ namespace LC
         {
             ResetAllSelectedSlots();
             weaponInventoryWindow.SetActive(false);
-            equipmentScreenWindow.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
 

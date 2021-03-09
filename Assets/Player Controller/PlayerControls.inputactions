@@ -286,6 +286,17 @@
                 },
                 {
                     "name": "",
+                    "id": "03ee8a5b-7ea1-458c-a130-df0e0ce49c02",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0f67f78c-228e-40ab-a37a-398f474a3f0f",
                     "path": "<Keyboard>/r",
                     "interactions": "",
@@ -352,17 +363,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0b86fffd-8354-4749-9bef-25f3c1004fd8",
-                    "path": "<Gamepad>/rightStickPress",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LockOn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "47ee96d6-5fff-4f12-a28b-d66d8c663a49",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -398,6 +398,17 @@
                     "name": "",
                     "id": "559d6e28-4365-4cf3-94c7-741f658e1e13",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpellCast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e03f437d-b983-4c8c-8b0c-166d877cc441",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

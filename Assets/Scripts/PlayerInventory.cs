@@ -94,7 +94,7 @@ namespace LC
                     }
                     break;
                 default:
-                    currentRightWeaponIndex = 1;
+                    currentRightWeaponIndex = 0;
                     tempWeaponIndex = currentRightWeaponIndex;
                     break;
             }

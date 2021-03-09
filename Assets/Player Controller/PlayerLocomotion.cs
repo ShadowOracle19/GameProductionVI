@@ -132,7 +132,7 @@ namespace LC
 
             
         }
-
+        
         public void HandleMovement(float delta)
         {
             if (inputHandler.rollFlag)

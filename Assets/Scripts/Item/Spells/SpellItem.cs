@@ -18,6 +18,15 @@ namespace LC
         [TextArea]
         public string spellDescription;
 
+        [Header("Spell Attributes")]
+        public int damage;
+        public float range;
+        public float effectRadius;
+        public float projectileSpeed = 30f;
+        public Vector3 destination;
+        public bool isAoe;
+        private Vector3 weaponSlot;
+
         public virtual void AttemptToCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
         {
             Debug.Log("attempt to cast");

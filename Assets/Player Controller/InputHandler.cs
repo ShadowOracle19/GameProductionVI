@@ -143,6 +143,7 @@ namespace LC
             //RB input handles RIGHT hand weapons light attack
             if(rb_Input)
             {
+                
                 playerInventory.UseMeleeWeapon();
                 playerAttacker.HandleRBAction();
 

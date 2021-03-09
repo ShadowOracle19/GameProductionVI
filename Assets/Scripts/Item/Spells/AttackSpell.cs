@@ -8,15 +8,6 @@ namespace LC
     [CreateAssetMenu(menuName = "Spells/Attacking Spell")]
     public class AttackSpell : SpellItem
     {
-
-        [Header("Spell Attributes")]
-        public int damage;
-        public int range;
-        public float effectRadius;
-        public float projectileSpeed = 30f;
-        private Vector3 destination;
-        public bool isAoe;
-        private Vector3 weaponSlot;
         public override void AttemptToCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
         {
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);
@@ -47,9 +38,8 @@ namespace LC
                     destination = ray.GetPoint(range);
                 }
 
-                
                 instantiatedSpellFX.GetComponent<Rigidbody>().velocity = (destination - weaponHolderSlot.rightHandSlot.transform.position).normalized * projectileSpeed;
-                //instantiatedSpellFX.transform.Translate(destination, Space.World);
+
             }
             
         }

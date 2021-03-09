@@ -15,6 +15,8 @@ namespace LC
 
         public float staminaRegenerationAmount = 1;
         public float staminaRegenerationTimer = 0;
+        public Transform spawnPoint;
+        public Transform playerTransform;
 
         private void Awake()
         {
@@ -69,7 +71,16 @@ namespace LC
                 animatorHandler.PlayTargetAnimation("Death_01", true);
                 isDead = true;
                 //Handle player death
+                StartCoroutine(respawnPlayer());
             }
+        }
+
+        IEnumerator respawnPlayer()
+        {
+            yield return new WaitForSeconds(2f);
+
+            RespawnPlayer();
+            yield return new WaitForSeconds(0.1f);
         }
 
         public void TakeStaminaDamage(int damage)
@@ -106,6 +117,15 @@ namespace LC
                 currentHealth = maxHealth;
             }
 
+            healthBar.SetCurrentHealth(currentHealth);
+        }
+
+        public void RespawnPlayer()
+        {
+            playerTransform.position = spawnPoint.position;
+            isDead = false;
+
+            currentHealth = maxHealth;
             healthBar.SetCurrentHealth(currentHealth);
         }
         
