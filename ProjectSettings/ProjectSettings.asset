@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: ManaBurn
   productName: Bio Heart
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 292a343d370b69749a52ef6b9cedefe3, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -262,7 +262,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 762501b35ece06741a5629cf4509af2a, type: 3}
+      m_Icon: {fileID: 2800000, guid: 6fe15814cc7158c408b3e6ed95f1a6de, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
