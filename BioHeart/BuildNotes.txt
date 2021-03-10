@@ -1,0 +1,22 @@
+controls:
+WASD/Left Stick(Controller) to move
+Left shift/ B button(controller) to roll/ sprint
+E key/ X button to melee
+Space/ A button to jump
+Escape/Start button to pause
+Left mouse button/ right trigger to cast spell
+Right arrow key/ D pad right to switch spell
+F key to focus on enemy
+
+
+problems with build:
+when you press the focus button with a controller it didnt work so to focus you have to be on keyboard to use that function
+the enemies still make a spin when locked onto the player
+
+What is needed to be shown:
+There is currently 3 useable spells: 1 healing, 1 Aoe, and 1 Thrown spell.
+all effects of the spell do work as intended
+
+Current state of the build:
+There is 1 level with enemies that follow the player and the player has the abilities to fight them off
+but so do the enemies
