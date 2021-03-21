@@ -23,7 +23,7 @@ Material:
   m_Name: GhostGlow
   m_Shader: {fileID: -6465566751694194690, guid: 297946b95a4f7e6438651973a236c1d1, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -89,8 +89,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_ade68e7a2b014ebc848bdc7cf937628c: 0
-    - Vector1_d25796ea076e47d3bf300f5455e09470: 1
+    - Vector1_ade68e7a2b014ebc848bdc7cf937628c: -1.81
+    - Vector1_d25796ea076e47d3bf300f5455e09470: 0.61
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -118,7 +118,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_085d5f8f17ed4ff887cb5cba838d1274: {r: 0.087254904, g: 0, b: 0.25, a: 0}
+    - Color_085d5f8f17ed4ff887cb5cba838d1274: {r: 1.3960785, g: 0, b: 4, a: 0}
     - Vector4_fa169e29bf114c57bf61e69f499c35ae: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
