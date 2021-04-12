@@ -17,8 +17,12 @@ MonoBehaviour:
   spellWarmUpFX: {fileID: 7107588898638039307, guid: 047c4704ee4bde445880ce6428e10f0d, type: 3}
   spellCastFX: {fileID: 7107588898638039307, guid: 047c4704ee4bde445880ce6428e10f0d, type: 3}
   spellAnimation: HealSpell_Cast
-  isFaithSpell: 1
-  isMagicSpell: 0
-  isPyroSpell: 0
   spellDescription: 
+  damage: 0
+  range: 0
+  effectRadius: 0
+  projectileSpeed: 30
+  destination: {x: 0, y: 0, z: 0}
+  isAoe: 0
+  cost: 50
   healAmount: 50

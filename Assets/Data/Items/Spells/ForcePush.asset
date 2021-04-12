@@ -22,4 +22,6 @@ MonoBehaviour:
   range: 0
   effectRadius: 0
   projectileSpeed: 30
+  destination: {x: 0, y: 0, z: 0}
   isAoe: 1
+  cost: 75

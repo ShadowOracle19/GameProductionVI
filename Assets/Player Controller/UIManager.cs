@@ -14,6 +14,7 @@ namespace LC
         public GameObject hudWindow;
         public GameObject selectWindow;
         public GameObject weaponInventoryWindow;
+        public Button primaryButton;
 
         [Header("Equipment window slots")]
         public bool rightHandSlot01Selected;
@@ -64,6 +65,8 @@ namespace LC
             selectWindow.SetActive(true);
             Time.timeScale = 0.00001f;
             Cursor.lockState = CursorLockMode.None;
+
+            primaryButton.Select();
         }
         public void CloseSelectWindow()
         {

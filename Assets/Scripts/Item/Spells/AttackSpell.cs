@@ -10,6 +10,8 @@ namespace LC
     {
         public override void AttemptToCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
         {
+            if (cost > playerStats.currentStamina)
+                return;
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);
             animatorHandler.PlayTargetAnimation(spellAnimation, true);
             Destroy(instantiatedWarmUpSpellFX, 1);
@@ -17,8 +19,10 @@ namespace LC
 
         public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponHolderSlot)
         {
+            if (cost > playerStats.currentStamina)
+                return;
             GameObject instantiatedSpellFX = Instantiate(spellCastFX, weaponHolderSlot.rightHandSlot.transform.position, Quaternion.identity);
-
+            playerStats.TakeStaminaDamage(cost);
             if (!isAoe)
             {
                 

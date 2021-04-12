@@ -24,3 +24,4 @@ MonoBehaviour:
   projectileSpeed: 30
   destination: {x: -71.59, y: 5.473916, z: 32.070118}
   isAoe: 0
+  cost: 25

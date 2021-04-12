@@ -26,7 +26,7 @@ namespace LC
         public Vector3 destination;
         public bool isAoe;
         private Vector3 weaponSlot;
-
+        public int cost;
         public virtual void AttemptToCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats)
         {
             Debug.Log("attempt to cast");

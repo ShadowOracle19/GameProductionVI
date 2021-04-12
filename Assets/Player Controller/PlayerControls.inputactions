@@ -385,6 +385,17 @@
                 },
                 {
                     "name": "",
+                    "id": "afd878f7-5044-421a-b7b4-dcc11002f972",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "eede851b-ffdb-4b24-8365-ca307c0ad905",
                     "path": "<Keyboard>/y",
                     "interactions": "",
