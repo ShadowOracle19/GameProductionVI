@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UISelect : MonoBehaviour
 {
     public Button primaryButton;
+    public Button menuButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,15 @@ public class UISelect : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void creditButton()
+    {
+        menuButton.Select();
+    }
+    
+    public void menuButtonSelect()
+    {
+        primaryButton.Select();
     }
 }
