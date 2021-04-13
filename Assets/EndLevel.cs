@@ -7,7 +7,11 @@ public class EndLevel : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("Menu");
+        if(other.CompareTag("Player"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Menu");
+        }
+
     }
 }

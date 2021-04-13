@@ -14,7 +14,7 @@ namespace LC
                 return;
             GameObject instantiatedWarmUpSpellFX = Instantiate(spellWarmUpFX, animatorHandler.transform);
             animatorHandler.PlayTargetAnimation(spellAnimation, true);
-            Destroy(instantiatedWarmUpSpellFX, 1);
+            Destroy(instantiatedWarmUpSpellFX, 5);
         }
 
         public override void SuccessfullyCastSpell(AnimatorHandler animatorHandler, PlayerStats playerStats, WeaponSlotManager weaponHolderSlot)

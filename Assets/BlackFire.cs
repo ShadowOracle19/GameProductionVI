@@ -6,6 +6,7 @@ namespace LC
 {
     public class BlackFire : MonoBehaviour
     {
+        public GameObject emitters;
         public int currentWeaponDamage = 25;
         public int effectRadius;
         public int range;
@@ -31,18 +32,24 @@ namespace LC
             }
         }
 
+      
+
         IEnumerator expand()
         {
-            Destroy(gameObject, aliveTime);
+            
             yield return new WaitForSeconds(0.1f);
-            for (float i = 0; i < effectRadius; i++)
+            for (float i = 0; i < effectRadius * 10; i++)
             {
-                gameObject.transform.localScale += new Vector3(i, i, i);
+                gameObject.transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(effectRadius, effectRadius, effectRadius), 0.01f);
+
                 yield return new WaitForSeconds(0.1f);
             }
+            Destroy(gameObject, aliveTime);
             
-
         }
+
+
+        
     }
 }
 
