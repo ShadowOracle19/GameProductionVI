@@ -128,6 +128,7 @@ namespace LC
 
             currentHealth = maxHealth;
             healthBar.SetCurrentHealth(currentHealth);
+            animatorHandler.PlayTargetAnimation("Empty", true);
         }
         
     }
