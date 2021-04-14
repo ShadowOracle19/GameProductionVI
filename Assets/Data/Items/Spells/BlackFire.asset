@@ -16,12 +16,13 @@ MonoBehaviour:
   itemName: Black Fire
   spellWarmUpFX: {fileID: 7107588898638039307, guid: 7a50cfea4118c1c4c865e3584d7e4807, type: 3}
   spellCastFX: {fileID: 8645979697932041174, guid: 2fb781038c416c94b94c7c6057194ab0, type: 3}
+  spellSFX: {fileID: 8300000, guid: db0f50f2f4e604447aa4d7855bde2b4d, type: 3}
   spellAnimation: 1H_Magic_Cast
   spellDescription: 
   damage: 0
   range: 100
   effectRadius: 0
   projectileSpeed: 30
-  destination: {x: -71.59, y: 5.473916, z: 32.070118}
+  destination: {x: 28.579264, y: 57.060287, z: -6.816697}
   isAoe: 0
   cost: 25

@@ -16,7 +16,7 @@ PlayerSettings:
   productName: Bio Heart
   defaultCursor: {fileID: 2800000, guid: 292a343d370b69749a52ef6b9cedefe3, type: 3}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -39,8 +39,10 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: eaddebb85decb2d4b96901b7f2f0c51c, type: 3}
+    duration: 2
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: eaddebb85decb2d4b96901b7f2f0c51c, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -127,7 +129,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 3.0
   preloadedAssets:
   - {fileID: 11400000, guid: 3c00e20fb5e965949aeb840c3516fc02, type: 2}
   metroInputSource: 0
@@ -262,7 +264,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 6fe15814cc7158c408b3e6ed95f1a6de, type: 3}
+      m_Icon: {fileID: 2800000, guid: b586271802e9b0c458d6ec4ec4960482, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -562,7 +564,7 @@ PlayerSettings:
   ps4IncludedModules: []
   ps4attribVROutputEnabled: 0
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 0}
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: b586271802e9b0c458d6ec4ec4960482, type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   blurSplashScreenBackground: 1
   spritePackerPolicy: 

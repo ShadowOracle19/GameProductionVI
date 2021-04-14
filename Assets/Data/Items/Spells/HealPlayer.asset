@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Heal Player
   spellWarmUpFX: {fileID: 7107588898638039307, guid: 047c4704ee4bde445880ce6428e10f0d, type: 3}
   spellCastFX: {fileID: 7107588898638039307, guid: 047c4704ee4bde445880ce6428e10f0d, type: 3}
+  spellSFX: {fileID: 8300000, guid: b593fb310eb81a248a67ca04868759a3, type: 3}
   spellAnimation: HealSpell_Cast
   spellDescription: 
   damage: 0

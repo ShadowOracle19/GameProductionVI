@@ -9,6 +9,7 @@ namespace LC
     {
         public GameObject spellWarmUpFX;
         public GameObject spellCastFX;
+        public AudioClip spellSFX;
 
         public string spellAnimation;
 

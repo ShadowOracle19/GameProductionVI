@@ -22,6 +22,8 @@ namespace LC
             if (cost > playerStats.currentStamina)
                 return;
             GameObject instantiatedSpellFX = Instantiate(spellCastFX, weaponHolderSlot.rightHandSlot.transform.position, Quaternion.identity);
+            playerStats.playerAudio.clip = spellSFX;
+            playerStats.playerAudio.Play();
             playerStats.TakeStaminaDamage(cost);
             if (!isAoe)
             {

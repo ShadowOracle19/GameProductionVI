@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Aura Push
   spellWarmUpFX: {fileID: 7107588898638039307, guid: de036f7ded8a6414d8dd469477eb965f, type: 3}
   spellCastFX: {fileID: 5507894379762944038, guid: 99eebdce8f5176f41ab42f6a8023f814, type: 3}
+  spellSFX: {fileID: 8300000, guid: 81b48e1b130181849ba2f27bfaebb67c, type: 3}
   spellAnimation: AuraPush_Cast
   spellDescription: 
   damage: 10

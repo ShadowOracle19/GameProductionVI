@@ -17,6 +17,7 @@ namespace LC
         public float staminaRegenerationTimer = 0;
         public Transform spawnPoint;
         public Transform playerTransform;
+        public AudioSource playerAudio;
 
         private void Awake()
         {

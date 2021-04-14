@@ -7,6 +7,7 @@ namespace LC
     public class DamageCollider : MonoBehaviour
     {
         public BoxCollider damageCollider;
+        public AudioSource slashSFX;
 
         public int currentWeaponDamage = 25;
 
@@ -21,6 +22,7 @@ namespace LC
         public void EnableDamageCollider()
         {
             damageCollider.enabled = true;
+            slashSFX.Play();
         }
 
         public void DisableDamageCollider()
